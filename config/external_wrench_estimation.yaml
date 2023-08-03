@@ -1,0 +1,21 @@
+Global:
+  g: -9.801
+
+Quadrotor:
+  m: 0.98 # kg
+  J: [0.0034568792504242403, 0.003647697326131978, 0.005434145442050494] # kg.m2
+  k_f: 1.512 # N/rpm2 * 1e-8
+  k_m: 2.0e-2 # Nm/rpm2 * 1e-8
+  L: 0.26 # m
+
+Estimator:
+  W_sigma:
+    sigma_a: [1.0e-2, 1.0e-2, 1.0e-2]
+    sigma_alpha: [1.0e-2, 1.0e-2, 1.0e-2]
+    sigma_F_ext_body: [1.0e-0, 1.0e-0, 1.0e-0]
+    sigma_M_ext_body: [1.0e-2, 1.0e-2, 1.0e-2]
+  N_sigma:
+    sigma_v_m: [1.0e-2, 1.0e-2, 0.8e-2]
+    sigma_q_m: [1.0e-4, 1.0e-4, 1.0e-4, 1.0e-4]
+    sigma_a_m: [1.0e-1, 1.0e-1, 0.8e-1]
+    sigma_omega_m: [5.0e-2, 5.0e-2, 5.0e-2]

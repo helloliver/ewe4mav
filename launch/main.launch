@@ -1,0 +1,26 @@
+<launch>
+    <arg name="mav_name" default="tx_uav" />
+
+    <node pkg="ewe4mav" type="imu_mocap_fusion_node" name="imu_mocap_fusion" output="screen">
+        <param name="cfgPath" value="$(find ewe4mav)/config/imu_mocap_fusion.yaml" />
+
+        <!-- subscribe -->
+        <remap from="~mocap" to="/vrpn_client_node/$(arg mav_name)/pose" />
+        <remap from="~imu" to="/mavros/imu/data" />
+
+        <!-- publish -->
+        <remap from="~imf" to="/ewe4mav/imf_out" />
+    </node>
+
+    <node pkg="ewe4mav" type="external_wrench_estimation_node" name="external_wrench_estimation"
+        output="screen">
+        <param name="cfgPath" value="$(find ewe4mav)/config/external_wrench_estimation.yaml" />
+
+        <!-- subscribe -->
+        <remap from="~imf" to="/ewe4mav/imf_out" />
+        <remap from="~rmu" to="/mavros/esc_status" />
+
+        <!-- publish -->
+        <remap from="~ewe" to="/ewe4mav/ewe_out" />
+    </node>
+</launch>

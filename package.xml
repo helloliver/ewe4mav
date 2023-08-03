@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>ewe4mav</name>
+  <version>1.0.0</version>
+  <description>The ewe4mav package</description>
+  <maintainer email="yyhan@todo.todo">YYHAN YIN</maintainer>
+  <license>Apache License Version 2.0</license>
+  <!-- <url type="website">http://wiki.ros.org/ewe4mav</url> -->
+  <author email="yyhan@example.com">YYHAN YIN</author>
+  <buildtool_depend>catkin</buildtool_depend>
+  <!-- The export tag contains other, unspecified, tags -->
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

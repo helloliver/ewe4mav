@@ -1,0 +1,16 @@
+<launch>
+    <param name="use_sim_time" value="false" />
+
+    <include file="$(find ewe4mav)/launch/main.launch">
+        <arg name="mav_name" value="tx_uav" />
+    </include>
+
+    <node pkg="rosbag" type="play" name="player1" output="screen"
+        args="$(find ewe4mav)/data/roped_flight.bag">
+    </node>
+
+    <node pkg="rosbag" type="play" name="player2" output="screen"
+        args="$(find ewe4mav)/data/roped_flight_gt.bag">
+        <remap from="/vrpn_client_node/tx_uav/pose" to="/vrpn_client_node/tx_uav/pose_ref" />
+    </node>
+</launch>
